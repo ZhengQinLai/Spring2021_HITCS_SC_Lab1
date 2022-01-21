@@ -8,33 +8,34 @@ import java.util.*;
 public class MagicSquare {
     String fileName;
     public static void main(String[] args) throws IOException {
+        String address="C:\\Users\\L\\Desktop\\Spring2021_HITCS_SC_Lab1\\P1\\txt";
         System.out.println("1.txt:");
-        MagicSquare M=new MagicSquare("C:\\Users\\L\\Desktop\\Lab\\src\\P1\\1.txt");
-        boolean Bool=M.isLegalMagicSquare("C:\\Users\\L\\Desktop\\Lab\\src\\P1\\1.txt");
+        MagicSquare M=new MagicSquare(address+"\\1.txt");
+        boolean Bool=M.isLegalMagicSquare(address+"\\1.txt");
         System.out.println(Bool);
         System.out.println("2.txt:");
-        M=new MagicSquare("C:\\Users\\L\\Desktop\\Lab\\src\\P1\\2.txt");
-        Bool=M.isLegalMagicSquare("C:\\Users\\L\\Desktop\\Lab\\src\\P1\\2.txt");
+        M=new MagicSquare(address+"\\2.txt");
+        Bool=M.isLegalMagicSquare(address+"\\2.txt");
         System.out.println(Bool);
         System.out.println("3.txt:");
-        M=new MagicSquare("C:\\Users\\L\\Desktop\\Lab\\src\\P1\\3.txt");
-        Bool=M.isLegalMagicSquare("C:\\Users\\L\\Desktop\\Lab\\src\\P1\\3.txt");
+        M=new MagicSquare(address+"\\3.txt");
+        Bool=M.isLegalMagicSquare(address+"\\3.txt");
         System.out.println(Bool);
         System.out.println("4.txt:");
-        M=new MagicSquare("C:\\Users\\L\\Desktop\\Lab\\src\\P1\\4.txt");
-        Bool=M.isLegalMagicSquare("C:\\Users\\L\\Desktop\\Lab\\src\\P1\\4.txt");
+        M=new MagicSquare(address+"\\4.txt");
+        Bool=M.isLegalMagicSquare(address+"\\4.txt");
         System.out.println(Bool);
         System.out.println("5.txt:");
-        M=new MagicSquare("C:\\Users\\L\\Desktop\\Lab\\src\\P1\\5.txt");
-        Bool=M.isLegalMagicSquare("C:\\Users\\L\\Desktop\\Lab\\src\\P1\\5.txt");
+        M=new MagicSquare(address+"\\5.txt");
+        Bool=M.isLegalMagicSquare(address+"\\5.txt");
         System.out.println(Bool);
         //对已有矩阵验证
 
         MagicSquare.generateMagicSquare(7);
         //创建一个矩阵
         System.out.println("6.txt:");
-        M=new MagicSquare("C:\\Users\\L\\Desktop\\Lab\\src\\P1\\6.txt");
-        Bool=M.isLegalMagicSquare("C:\\Users\\L\\Desktop\\Lab\\src\\P1\\6.txt");
+        M=new MagicSquare(address+"\\6.txt");
+        Bool=M.isLegalMagicSquare(address+"\\6.txt");
         System.out.println(Bool);
     }
     public MagicSquare(String fileName){
@@ -155,7 +156,7 @@ public class MagicSquare {
      }
 
      //扩展部分
-     PrintWriter out = new PrintWriter("C:\\Users\\L\\Desktop\\Lab\\src\\P1\\6.txt");
+     PrintWriter out = new PrintWriter("C:\\Users\\L\\Desktop\\Spring2021_HITCS_SC_Lab1\\P1\\txt\\6.txt");
      for (i = 0; i < n; i++) {
          for (j = 0; j < n; j++)
              out.print(magic[i][j] + "\t");
