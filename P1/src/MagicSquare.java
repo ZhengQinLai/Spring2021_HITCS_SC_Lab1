@@ -7,7 +7,7 @@ import java.util.*;
 
 public class MagicSquare {
     String fileName;
-    public static void main(String[] args) throws IOException {
+    public static void main (String[] args) throws IOException {
         String address="C:\\Users\\L\\Desktop\\Spring2021_HITCS_SC_Lab1\\P1\\txt";
         System.out.println("1.txt:");
         MagicSquare M=new MagicSquare(address+"\\1.txt");
@@ -116,53 +116,53 @@ public class MagicSquare {
         return true;
     }
 
- /*       for(int k=0;k<m;k++){
-            for(int l=0;l<n;l++){
-                System.out.print(Ms[k][l]);
-            }
-            System.out.println();
+    /*       for(int k=0;k<m;k++){
+               for(int l=0;l<n;l++){
+                   System.out.print(Ms[k][l]);
+               }
+               System.out.println();
+           }
+           return true;
+       }
+       */
+    public static boolean generateMagicSquare(int n) throws FileNotFoundException {
+        int[][] magic;
+        try{
+            magic = new int[n][n];
+        }catch(NegativeArraySizeException e){
+            System.out.println("输入了负数！");
+            return false;
         }
+        int row = 0, col = n / 2, i, j, square = n * n;
+        for (i = 1; i <= square; i++) {
+            try{
+                magic[row][col] = i;//从1开始放入，放到正中间第一行
+            }catch(ArrayIndexOutOfBoundsException e){
+                System.out.println("输入了偶数！");
+                return  false;
+            }
+            if (i % n == 0)
+                row++;//每次放入n个数
+            else {
+                if (row == 0)
+                    row = n - 1;
+                else
+                    row--;
+                if (col == (n - 1))
+                    col = 0;
+                else
+                    col++;
+            }//向斜右上方移动
+        }
+
+        //扩展部分
+        PrintWriter out = new PrintWriter("C:\\Users\\L\\Desktop\\Spring2021_HITCS_SC_Lab1\\P1\\txt\\6.txt");
+        for (i = 0; i < n; i++) {
+            for (j = 0; j < n; j++)
+                out.print(magic[i][j] + "\t");
+            out.println();
+        }
+        out.close();
         return true;
     }
-    */
- public static boolean generateMagicSquare(int n) throws FileNotFoundException {
-     int[][] magic;
-     try{
-         magic = new int[n][n];
-     }catch(NegativeArraySizeException e){
-         System.out.println("输入了负数！");
-         return false;
-     }
-     int row = 0, col = n / 2, i, j, square = n * n;
-     for (i = 1; i <= square; i++) {
-         try{
-             magic[row][col] = i;//从1开始放入，放到正中间第一行
-         }catch(ArrayIndexOutOfBoundsException e){
-             System.out.println("输入了偶数！");
-             return  false;
-         }
-         if (i % n == 0)
-             row++;//每次放入n个数
-         else {
-             if (row == 0)
-                 row = n - 1;
-             else
-                 row--;
-             if (col == (n - 1))
-                 col = 0;
-             else
-                 col++;
-         }//向斜右上方移动
-     }
-
-     //扩展部分
-     PrintWriter out = new PrintWriter("C:\\Users\\L\\Desktop\\Spring2021_HITCS_SC_Lab1\\P1\\txt\\6.txt");
-     for (i = 0; i < n; i++) {
-         for (j = 0; j < n; j++)
-             out.print(magic[i][j] + "\t");
-         out.println();
-     }
-     out.close();
-     return true;
- }
 }
